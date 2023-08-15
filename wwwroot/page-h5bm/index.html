@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+        <meta name="format-detection" content="telephone=no" />
+        <link rel="icon" href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/favicon.ico" />
+        <title></title>
+        <!--用js将http强制跳转到https，自动携带url参数 -->
+        <script type="text/javascript">
+            (function() {
+                /**
+                 * 获取地址栏参数
+                 */
+                function request() {
+                    var args = new Object();
+                    var query = location.search.substring(1); // Get query string
+                    var pairs = query.split("&"); // Break at ampersand
+                    for (var i = 0; i < pairs.length; i++) {
+                        var pos = pairs[i].indexOf('='); // Look for "name=value"
+                        if (pos == -1) continue; // If not found, skip
+                        var argname = pairs[i].substring(0, pos); // Extract the name
+                        var value = pairs[i].substring(pos + 1); // Extract the value
+                        value = decodeURIComponent(value); // Decode it, if needed
+                        args[argname] = value; // Store as a property
+                    }
+                    return args;
+                }
+                /**
+                 * 要强制转换协议的接入应用
+                 * 20201218 第一批转换h5应用 'bmApp','xdfmobileApp','xaztyApp','bjxdflxsApp','whztApp','tjwkAPP','wechatApp','bjagentApp','fpmApp'
+                 */
+                var arr = ['bmApp','xdfmobileApp','xaztyApp','bjxdflxsApp','whztApp','tjwkAPP','wechatApp','bjagentApp','fpmApp','wxApp','vpsApp','woxue'];
+                var isChange = false;
+                for( var i = 0;i < arr.length; i++){
+                    if(arr[i] === request().appId){
+                        isChange = true;
+                        break;
+                    }
+                }
+                /**
+                 * 过滤本地开发环境
+                */
+                var hostNames = ['mock.local.xdf.cn','dev.local.xdf.cn','t.local.xdf.cn','q.local.xdf.cn', '10.201.241.175'];
+                var host = window.location.host;
+                var isLocal = false;
+                for( var i = 0; i < hostNames.length; i++){
+                    if(host.indexOf(hostNames[i]) !== -1){
+                        isLocal = true;
+                        break;
+                    }
+                }
+                /**
+                 * 满足条件强制转换协议
+                 */
+                var protocol = "https:", loc = window.location;
+                if (!isLocal && loc.protocol !== protocol && isChange) {
+                    loc.href = protocol + loc.href.substring(loc.protocol.length);
+                }
+            })();
+        </script>
+        <script src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+        <script src="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/fesdk/h5bm-v3.js"></script>
+        <script>
+            window.config = {
+              "cdnBase": "",
+              "cdnBase2": "https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/"
+            };
+        </script>
+        <meta name="febuildtime" content="1691725717166">
+        <meta name="febuildtimex" content="Fri Aug 11 2023 11:48:37 GMT+0800 (Coordinated Universal Time)">
+    <style>.skeleton-header[data-v-32a5e643] {
+  height: 0.533333rem;
+  background: #1976d2;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.skeleton-block[data-v-32a5e643] {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  padding-top: 0.106667rem;
+}
+.skeleton-header[data-v-6a9727a6] {
+  height: 0.533333rem;
+  background: #1976d2;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.skeleton-block[data-v-6a9727a6] {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  padding-top: 0.106667rem;
+}
+.skeleton-header[data-v-8b25f05c] {
+  height: 0.533333rem;
+  background: #1976d2;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.skeleton-block[data-v-8b25f05c] {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  padding-top: 0.106667rem;
+}
+</style><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-00393d7a.2bf7e8ab.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-03adb622.9e4b0580.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-06f2e3de.d875b48e.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-07f97bf9.4c1c7899.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-08c3481a.d74175de.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-0b0ed4e8.a9f2a89d.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-0f216aae.689379b2.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-0faa3c5a.8aee8a28.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-10fcf019.ab28a721.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-27b7a8f2.d3c3f9c1.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-2c606f9b.14b63e0f.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-2e9dbcda.a2beceec.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-2f3b1a23.f5fd0f66.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-310531d0.1fb30073.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-35a5a7d6.29861825.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-362150d6.e5a9086d.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-3aa6d052.5c18935e.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-3e5f38b3.ebc5e5cf.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-4039b70b.575482e8.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-48c47d16.c9e651e0.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-52019389.f16444f8.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-5214d044.8ad10c66.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-52b65b38.6e666ad2.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-57a68e96.d3b9ad0f.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-5fe143b7.cf372d68.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-6176ccbe.9b4f3148.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-635b4bcb.321e0d39.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-63e54580.e703207b.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-67012b1f.409fa83c.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-67719172.d4ef9899.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-68d0d789.006b8255.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-6cd191d6.0d5b1999.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-73117fbb.b4f143ca.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-789905ac.3dd299b3.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-7f58f27a.82ce7137.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-80081c28.33381ecb.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-8202b346.c2f2715f.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-82377dd4.2277d600.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-8418706a.af962a83.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-841fda86.b0400fed.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-844d614c.abb6dad5.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-8513b100.861387e9.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-854dce00.83248f50.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-97896656.199175f0.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-9988bbcc.8de9854e.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-9b12951e.fbdc41c0.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-a825fc4e.49c55767.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-c33f57cc.3f755039.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-c6990aac.aa5e5358.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-ca975732.3a2976b7.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-d55be26a.b4f143ca.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-daebaabe.343c06af.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-e39ffad6.7c95e2c9.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-e6b14756.2bce29f3.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-f044f566.2a332afa.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-f1254cf0.af5b4fcb.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-fd010b68.867d400d.css" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-00393d7a.011dcf17.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-03adb622.82318914.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-06f2e3de.74b7d920.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-07f97bf9.6462ae4b.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-08c3481a.91f28240.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-0b0ed4e8.4d773a45.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-0f216aae.c81b4e95.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-0faa3c5a.e3d2f6f4.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-10fcf019.bb3ad112.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-27b7a8f2.79770ed3.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-2c606f9b.a40d4c7d.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-2d0c823a.2abb7d25.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-2d21d866.03b1152e.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-2e9dbcda.fef6a88c.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-2f3b1a23.d07e15e4.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-310531d0.8f464f57.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-35a5a7d6.09f66f2b.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-362150d6.90174955.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-3aa6d052.01ae2547.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-3e5f38b3.5a9a7e39.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-4039b70b.f76cba53.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-48c47d16.4ddd6a04.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-52019389.f1bd2f1e.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-5214d044.ebfd9ef4.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-52b65b38.b2f2a3fb.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-57a68e96.46083626.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-5fe143b7.9175cdd7.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-6176ccbe.dde7a278.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-635b4bcb.5f366260.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-63e54580.a3651ec5.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-67012b1f.b1b6ee7c.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-67719172.daa0572d.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-68d0d789.3f981e29.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-6cd191d6.e6fe9f11.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-73117fbb.c5ace7a7.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-789905ac.a2eb4a3a.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-7f58f27a.b582d615.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-80081c28.fd4518db.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-8202b346.2cd0bbff.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-82377dd4.ebdc11a2.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-8418706a.f54504f7.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-841fda86.13044c6a.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-844d614c.c0ab52ec.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-8513b100.e13c9760.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-854dce00.2517a0b5.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-97896656.f9a8d3f3.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-9988bbcc.a0c12be1.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-9b12951e.0d240b35.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-a825fc4e.d570a4de.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-c33f57cc.055a175d.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-c6990aac.565a35e4.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-ca975732.066be192.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-d55be26a.5baedd75.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-daebaabe.b7176ff1.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-e39ffad6.431bc357.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-e6b14756.5c630418.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-f044f566.7dc302fa.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-f1254cf0.d70456b7.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-fd010b68.bc849d1e.js" rel="prefetch"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/app.044096b5.css" rel="preload" as="style"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-vendors.2e1a105c.css" rel="preload" as="style"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/app.8832da15.js" rel="preload" as="script"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-vendors.bc49710d.js" rel="preload" as="script"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/chunk-vendors.2e1a105c.css" rel="stylesheet" crossorigin="anonymous"><link href="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/css/app.044096b5.css" rel="stylesheet" crossorigin="anonymous"></head>
+    <body>
+        <noscript>
+            <strong>We're sorry but t5 doesn't work properly without JavaScript enabled. Please enableit to continue.</strong>
+        </noscript>
+        <div id="app"><div data-server-rendered="true"><div id="skeletonIn" class="skeleton-wrapper" style="display:none;" data-v-32a5e643><header class="skeleton-header" data-v-32a5e643></header><section class="skeleton-block" data-v-32a5e643><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTA4MCAyNjEiPjxkZWZzPjxwYXRoIGlkPSJiIiBkPSJNMCAwaDEwODB2MjYwSDB6Ii8+PGZpbHRlciBpZD0iYSIgd2lkdGg9IjIwMCUiIGhlaWdodD0iMjAwJSIgeD0iLTUwJSIgeT0iLTUwJSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij48ZmVPZmZzZXQgZHk9Ii0xIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlQ29sb3JNYXRyaXggaW49InNoYWRvd09mZnNldE91dGVyMSIgdmFsdWVzPSIwIDAgMCAwIDAuOTMzMzMzMzMzIDAgMCAwIDAgMC45MzMzMzMzMzMgMCAwIDAgMCAwLjkzMzMzMzMzMyAwIDAgMCAxIDAiLz48L2ZpbHRlcj48L2RlZnM+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDEpIj48dXNlIGZpbGw9IiMwMDAiIGZpbHRlcj0idXJsKCNhKSIgeGxpbms6aHJlZj0iI2IiLz48dXNlIGZpbGw9IiNGRkYiIHhsaW5rOmhyZWY9IiNiIi8+PHBhdGggZmlsbD0iI0Y2RjZGNiIgZD0iTTIzMCA0NGg1MzN2NDZIMjMweiIvPjxyZWN0IHdpZHRoPSIxNzIiIGhlaWdodD0iMTcyIiB4PSIzMCIgeT0iNDQiIGZpbGw9IiNGNkY2RjYiIHJ4PSI0Ii8+PHBhdGggZmlsbD0iI0Y2RjZGNiIgZD0iTTIzMCAxMThoMzY5djMwSDIzMHpNMjMwIDE4MmgzMjN2MzBIMjMwek04MTIgMTE1aDIzOHYzOUg4MTJ6TTgwOCAxODRoMjQydjMwSDgwOHpNOTE3IDQ4aDEzM3YzN0g5MTd6Ii8+PC9nPjwvc3ZnPg==" data-v-32a5e643><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTA4MCAyNjEiPjxkZWZzPjxwYXRoIGlkPSJiIiBkPSJNMCAwaDEwODB2MjYwSDB6Ii8+PGZpbHRlciBpZD0iYSIgd2lkdGg9IjIwMCUiIGhlaWdodD0iMjAwJSIgeD0iLTUwJSIgeT0iLTUwJSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij48ZmVPZmZzZXQgZHk9Ii0xIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlQ29sb3JNYXRyaXggaW49InNoYWRvd09mZnNldE91dGVyMSIgdmFsdWVzPSIwIDAgMCAwIDAuOTMzMzMzMzMzIDAgMCAwIDAgMC45MzMzMzMzMzMgMCAwIDAgMCAwLjkzMzMzMzMzMyAwIDAgMCAxIDAiLz48L2ZpbHRlcj48L2RlZnM+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDEpIj48dXNlIGZpbGw9IiMwMDAiIGZpbHRlcj0idXJsKCNhKSIgeGxpbms6aHJlZj0iI2IiLz48dXNlIGZpbGw9IiNGRkYiIHhsaW5rOmhyZWY9IiNiIi8+PHBhdGggZmlsbD0iI0Y2RjZGNiIgZD0iTTIzMCA0NGg1MzN2NDZIMjMweiIvPjxyZWN0IHdpZHRoPSIxNzIiIGhlaWdodD0iMTcyIiB4PSIzMCIgeT0iNDQiIGZpbGw9IiNGNkY2RjYiIHJ4PSI0Ii8+PHBhdGggZmlsbD0iI0Y2RjZGNiIgZD0iTTIzMCAxMThoMzY5djMwSDIzMHpNMjMwIDE4MmgzMjN2MzBIMjMwek04MTIgMTE1aDIzOHYzOUg4MTJ6TTgwOCAxODRoMjQydjMwSDgwOHpNOTE3IDQ4aDEzM3YzN0g5MTd6Ii8+PC9nPjwvc3ZnPg==" data-v-32a5e643></section></div> <div id="skeletonOut" class="skeleton-wrapper" style="display:none;" data-v-6a9727a6><header class="skeleton-header" data-v-6a9727a6></header><section class="skeleton-block" data-v-6a9727a6><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTA4MCAyNjEiPjxkZWZzPjxwYXRoIGlkPSJiIiBkPSJNMCAwaDEwODB2MjYwSDB6Ii8+PGZpbHRlciBpZD0iYSIgd2lkdGg9IjIwMCUiIGhlaWdodD0iMjAwJSIgeD0iLTUwJSIgeT0iLTUwJSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij48ZmVPZmZzZXQgZHk9Ii0xIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlQ29sb3JNYXRyaXggaW49InNoYWRvd09mZnNldE91dGVyMSIgdmFsdWVzPSIwIDAgMCAwIDAuOTMzMzMzMzMzIDAgMCAwIDAgMC45MzMzMzMzMzMgMCAwIDAgMCAwLjkzMzMzMzMzMyAwIDAgMCAxIDAiLz48L2ZpbHRlcj48L2RlZnM+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDEpIj48dXNlIGZpbGw9IiMwMDAiIGZpbHRlcj0idXJsKCNhKSIgeGxpbms6aHJlZj0iI2IiLz48dXNlIGZpbGw9IiNGRkYiIHhsaW5rOmhyZWY9IiNiIi8+PHBhdGggZmlsbD0iI0Y2RjZGNiIgZD0iTTIzMCA0NGg1MzN2NDZIMjMweiIvPjxyZWN0IHdpZHRoPSIxNzIiIGhlaWdodD0iMTcyIiB4PSIzMCIgeT0iNDQiIGZpbGw9IiNGNkY2RjYiIHJ4PSI0Ii8+PHBhdGggZmlsbD0iI0Y2RjZGNiIgZD0iTTIzMCAxMThoMzY5djMwSDIzMHpNMjMwIDE4MmgzMjN2MzBIMjMwek04MTIgMTE1aDIzOHYzOUg4MTJ6TTgwOCAxODRoMjQydjMwSDgwOHpNOTE3IDQ4aDEzM3YzN0g5MTd6Ii8+PC9nPjwvc3ZnPg==" data-v-6a9727a6><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTA4MCAyNjEiPjxkZWZzPjxwYXRoIGlkPSJiIiBkPSJNMCAwaDEwODB2MjYwSDB6Ii8+PGZpbHRlciBpZD0iYSIgd2lkdGg9IjIwMCUiIGhlaWdodD0iMjAwJSIgeD0iLTUwJSIgeT0iLTUwJSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij48ZmVPZmZzZXQgZHk9Ii0xIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlQ29sb3JNYXRyaXggaW49InNoYWRvd09mZnNldE91dGVyMSIgdmFsdWVzPSIwIDAgMCAwIDAuOTMzMzMzMzMzIDAgMCAwIDAgMC45MzMzMzMzMzMgMCAwIDAgMCAwLjkzMzMzMzMzMyAwIDAgMCAxIDAiLz48L2ZpbHRlcj48L2RlZnM+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDEpIj48dXNlIGZpbGw9IiMwMDAiIGZpbHRlcj0idXJsKCNhKSIgeGxpbms6aHJlZj0iI2IiLz48dXNlIGZpbGw9IiNGRkYiIHhsaW5rOmhyZWY9IiNiIi8+PHBhdGggZmlsbD0iI0Y2RjZGNiIgZD0iTTIzMCA0NGg1MzN2NDZIMjMweiIvPjxyZWN0IHdpZHRoPSIxNzIiIGhlaWdodD0iMTcyIiB4PSIzMCIgeT0iNDQiIGZpbGw9IiNGNkY2RjYiIHJ4PSI0Ii8+PHBhdGggZmlsbD0iI0Y2RjZGNiIgZD0iTTIzMCAxMThoMzY5djMwSDIzMHpNMjMwIDE4MmgzMjN2MzBIMjMwek04MTIgMTE1aDIzOHYzOUg4MTJ6TTgwOCAxODRoMjQydjMwSDgwOHpNOTE3IDQ4aDEzM3YzN0g5MTd6Ii8+PC9nPjwvc3ZnPg==" data-v-6a9727a6></section></div> <div id="skeletonBusiness" class="skeleton-wrapper" style="display:none;" data-v-8b25f05c><section class="skeleton-block" data-v-8b25f05c><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTA4MCAyNjEiPjxkZWZzPjxwYXRoIGlkPSJiIiBkPSJNMCAwaDEwODB2MjYwSDB6Ii8+PGZpbHRlciBpZD0iYSIgd2lkdGg9IjIwMCUiIGhlaWdodD0iMjAwJSIgeD0iLTUwJSIgeT0iLTUwJSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij48ZmVPZmZzZXQgZHk9Ii0xIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlQ29sb3JNYXRyaXggaW49InNoYWRvd09mZnNldE91dGVyMSIgdmFsdWVzPSIwIDAgMCAwIDAuOTMzMzMzMzMzIDAgMCAwIDAgMC45MzMzMzMzMzMgMCAwIDAgMCAwLjkzMzMzMzMzMyAwIDAgMCAxIDAiLz48L2ZpbHRlcj48L2RlZnM+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDEpIj48dXNlIGZpbGw9IiMwMDAiIGZpbHRlcj0idXJsKCNhKSIgeGxpbms6aHJlZj0iI2IiLz48dXNlIGZpbGw9IiNGRkYiIHhsaW5rOmhyZWY9IiNiIi8+PHBhdGggZmlsbD0iI0Y2RjZGNiIgZD0iTTIzMCA0NGg1MzN2NDZIMjMweiIvPjxyZWN0IHdpZHRoPSIxNzIiIGhlaWdodD0iMTcyIiB4PSIzMCIgeT0iNDQiIGZpbGw9IiNGNkY2RjYiIHJ4PSI0Ii8+PHBhdGggZmlsbD0iI0Y2RjZGNiIgZD0iTTIzMCAxMThoMzY5djMwSDIzMHpNMjMwIDE4MmgzMjN2MzBIMjMwek04MTIgMTE1aDIzOHYzOUg4MTJ6TTgwOCAxODRoMjQydjMwSDgwOHpNOTE3IDQ4aDEzM3YzN0g5MTd6Ii8+PC9nPjwvc3ZnPg==" data-v-8b25f05c><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTA4MCAyNjEiPjxkZWZzPjxwYXRoIGlkPSJiIiBkPSJNMCAwaDEwODB2MjYwSDB6Ii8+PGZpbHRlciBpZD0iYSIgd2lkdGg9IjIwMCUiIGhlaWdodD0iMjAwJSIgeD0iLTUwJSIgeT0iLTUwJSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94Ij48ZmVPZmZzZXQgZHk9Ii0xIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIi8+PGZlQ29sb3JNYXRyaXggaW49InNoYWRvd09mZnNldE91dGVyMSIgdmFsdWVzPSIwIDAgMCAwIDAuOTMzMzMzMzMzIDAgMCAwIDAgMC45MzMzMzMzMzMgMCAwIDAgMCAwLjkzMzMzMzMzMyAwIDAgMCAxIDAiLz48L2ZpbHRlcj48L2RlZnM+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwIDEpIj48dXNlIGZpbGw9IiMwMDAiIGZpbHRlcj0idXJsKCNhKSIgeGxpbms6aHJlZj0iI2IiLz48dXNlIGZpbGw9IiNGRkYiIHhsaW5rOmhyZWY9IiNiIi8+PHBhdGggZmlsbD0iI0Y2RjZGNiIgZD0iTTIzMCA0NGg1MzN2NDZIMjMweiIvPjxyZWN0IHdpZHRoPSIxNzIiIGhlaWdodD0iMTcyIiB4PSIzMCIgeT0iNDQiIGZpbGw9IiNGNkY2RjYiIHJ4PSI0Ii8+PHBhdGggZmlsbD0iI0Y2RjZGNiIgZD0iTTIzMCAxMThoMzY5djMwSDIzMHpNMjMwIDE4MmgzMjN2MzBIMjMwek04MTIgMTE1aDIzOHYzOUg4MTJ6TTgwOCAxODRoMjQydjMwSDgwOHpNOTE3IDQ4aDEzM3YzN0g5MTd6Ii8+PC9nPjwvc3ZnPg==" data-v-8b25f05c></section></div></div><script>var pathname=window.location.pathname,hash=window.location.hash,skeletons=[{id:"skeletonIn",el:document.querySelector("#skeletonIn")},{id:"skeletonBusiness",el:document.querySelector("#skeletonBusiness")},{id:"skeletonBusiness",el:document.querySelector("#skeletonBusiness")},{id:"skeletonIn",el:document.querySelector("#skeletonIn")},{id:"skeletonIn",el:document.querySelector("#skeletonIn")},{id:"skeletonIn",el:document.querySelector("#skeletonIn")},{id:"skeletonIn",el:document.querySelector("#skeletonIn")}],isMatched=function(e,s){return"hash"===s?e.test(hash.replace("#","")):"history"===s&&e.test(pathname)},showSkeleton=function(e){for(var s=0;s<skeletons.length;s++){var t=skeletons[s];e===t.id?t.el.style="display:block;":t.el.style="display:none;"}};isMatched(/^\/(?:\/)?$/i,"history")?showSkeleton("skeletonIn"):isMatched(/^\/business-index(?:\/)?$/i,"history")?showSkeleton("skeletonBusiness"):isMatched(/^\/page-h5bm\/business-index(?:\/)?$/i,"history")?showSkeleton("skeletonBusiness"):isMatched(/^\/cart(?:\/)?$/i,"history")?showSkeleton("skeletonIn"):isMatched(/^\/page-h5bm\/cart(?:\/)?$/i,"history")?showSkeleton("skeletonIn"):isMatched(/^\/order-list(?:\/)?$/i,"history")?showSkeleton("skeletonIn"):isMatched(/^\/page-h5bm\/order-list(?:\/)?$/i,"history")&&showSkeleton("skeletonIn");</script></div>
+        <script
+            type="text/javascript"
+            src="https://images.xdf.cn/cms20150819/xinbannew/js/xdf_global.min.js?v=2016-01"
+        ></script>
+        <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                (i[r] =
+                    i[r] ||
+                    function() {
+                        (i[r].q = i[r].q || []).push(arguments);
+                    }),
+                    (i[r].l = 1 * new Date());
+                (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        </script>
+
+        <script type="text/javascript">
+            window._gaq = function() {
+                var _gaq = _gaq || [];
+                return _gap;
+            };
+        </script>
+        <script type="text/javascript">
+            (function() {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = 'https://file.xdf.cn/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    <script type="text/javascript" src="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/chunk-vendors.bc49710d.js" crossorigin="anonymous"></script><script type="text/javascript" src="https://preg.xdfstatic.cn/p/wbh5bm/0.0.6/js/app.8832da15.js" crossorigin="anonymous"></script></body>
+</html>
+<script src="https://ppss.xdf.cn/npm/xdf-moon-bridge@1.0.0/xdf-moon-bridge.min.js"></script>
+<!-- c端数据埋点 -->
+<script src="https://c-tessar.xdf.cn/plumber/unioninfo/plumbertracewithoutpouchdbwithbeaconsendwithlocalstorage_h5v30.js"></script>

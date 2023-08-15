@@ -1,0 +1,13 @@
+[
+    "brace-style",
+    "no-cond-assign",
+    "object-curly-newline",
+    "indent",
+    "prefer-destructuring",
+    "array-bracket-newline",
+    "no-confusing-arrow",
+    "space-in-parens",
+    "no-return-assign",
+    "multiline-comment-style",
+    "no-extra-parens"
+]

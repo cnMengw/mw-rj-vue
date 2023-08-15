@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FE</title>
+</head>
+<body>
+<div>loading...</div>
+<script type="text/javascript">
+function request() {
+    var args = new Object();
+    var query = location.search.substring(1); // Get query string  
+    var pairs = query.split("&"); // Break at ampersand  
+    for (var i = 0; i < pairs.length; i++) {
+        var pos = pairs[i].indexOf('='); // Look for "name=value"  
+        if (pos == -1) continue; // If not found, skip  
+        var argname = pairs[i].substring(0, pos); // Extract the name  
+        var value = pairs[i].substring(pos + 1); // Extract the value  
+        value = decodeURIComponent(value); // Decode it, if needed  
+        args[argname] = value; // Store as a property  
+    }
+    return args;
+}
+
+function setToken() {
+    var _accessToken = request().feat;
+    var _date = new Date();
+    _date.setTime(_date.getTime() + 7 * 24 * 60 * 60 * 1000);
+    _date.toUTCString();
+    document.cookie = 'U2AT=' + _accessToken + '; expires=' + _date + '; path=/';
+}
+
+setToken();
+
+setTimeout(function(){
+    window.location.href = request().r;
+},500);
+</script>
+</body>
+</html>
