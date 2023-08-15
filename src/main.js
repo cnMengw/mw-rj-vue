@@ -4,7 +4,6 @@ import router from './router';
 import store from './store';
 import VueAddition from './vue-addition';
 import 'lib-flexible';
-import './assets/base.scss';
 import { Toast } from 'vant';
 Vue.prototype.$toast = Toast;
 Vue.config.productionTip = false;

@@ -34,61 +34,10 @@
 </template>
 
 <script type="text/ecmascript-6">
-import xdfAuth from './../../sdk/xdf-auth';
-const HREF_CONFIG = [
-    {
-        href: '/page-h5bm/cartAdd?appId=bmApp&systemSource=mobilePay',
-        text: '添加购物车'
-    },
-    {
-        href: '/page-h5bm/cart?appId=bmApp&systemSource=mobilePay',
-        text: '购物车'
-    },
-    {
-        href: '/page-h5bm/order?appId=bmApp&systemSource=mobilePay&schoolId=1&classCodes=BJFCT00420268002',
-        text: '订单结算'
-    },
-    {
-        href: '/page-h5bm/order-list?appId=bmApp&systemSource=mobilePay',
-        text: '订单列表'
-    },
-    {
-        href: '/page-h5bm/pay-share?appId=wxApp&systemSource=mobilePay&payOrderId=11952825&studentId=11&schoolId=1&orderCode=20221212151539330421',
-        text: '找人代付页面'
-    },
-    {
-        href: '/page-h5bm/pay-result-success?appId=bmApp&systemSource=mobilePay',
-        text: '支付成功'
-    },
-    // {
-    //     href: '/page-h5bm/business-index?appId=woxue&systemSource=woxue&userId=abc&studentCode=B101&schoolId=1',
-    //     text: '营业厅'
-    // },
-    // {
-    //     href: '/page-h5bm/search-classcode?appId=bmApp&systemSource=mobilePay&schoolId=1&studentCode=11',
-    //     text: '班号搜索'
-    // },
-    // {
-    //     href: '/page-h5bm/search-category?appId=bmApp&systemSource=mobilePay&schoolId=1&studentCode=11&deptCode=16',
-    //     text: '分类搜索'
-    // },
-    {
-        text: '登陆',
-        class: 'list',
-        onClick: xdfAuth.login
-    },
-    {
-        text: '退出',
-        class: 'list',
-        onClick: xdfAuth.logout
-    }
-];
-
 export default {
     name: 'index',
     data() {
         return {
-            listInfo: HREF_CONFIG,
             klines: [],
             lessKlin: []
         };
@@ -129,10 +78,6 @@ export default {
         this.init();
     },
     methods: {
-        goHref() {
-            const href = window.location.origin;
-            window.location.href = `${href}/page-h5bm/paynew-success?appId=bmApp&systemSource=mobilePay`;
-        },
         // 得到需要购买的股数, 现在的价位，剩余金额，当前收盘价
         getBuyNum(nowMoney, lessmoney, spPrice) {
             let needBuy = 2 * nowMoney;
