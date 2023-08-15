@@ -65,9 +65,6 @@ router.beforeEach((to, from, next) => {
     // }
 });
 router.afterEach((to, from) => {
-    st('default', {});
-    ga('create', 'UA-20005525-1', 'auto');
-    ga('send', 'pageview');
     const toPath = to.path;
     const params = xdfUtil.parseParams(window.location.href) || {};
     if (params.openid && params.weixinSubAppId) {

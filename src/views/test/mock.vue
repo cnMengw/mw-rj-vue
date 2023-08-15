@@ -2,12 +2,24 @@
     <div id="index">
         <div class="row-item" v-for="(it, ind) in lessKlin" :key="ind">
             <div class="row">
+                <div class="label">序号：</div>
+                <div class="val">{{it.ind}}</div>
+            </div>
+            <div class="row">
+                <div class="label">时间：</div>
+                <div class="val">{{it.time}}</div>
+            </div>
+            <div class="row">
                 <div class="label">操作方法：</div>
                 <div class="val">{{it.type === 1 ? '买入' : '卖出'}}</div>
             </div>
             <div class="row">
                 <div class="label">目前持有股数：</div>
                 <div class="val">{{it.allGu}}</div>
+            </div>
+            <div class="row">
+                <div class="label">交易股数</div>
+                <div class="val">{{it.buyGu}}</div>
             </div>
             <div class="row">
                 <div class="label">交易金额</div>
@@ -19,7 +31,7 @@
             </div>
             <div class="row">
                 <div class="label">剩余股价</div>
-                <div class="val">{{it.endV * it.allGu}}</div>
+                <div class="val">{{parseInt(it.endV * it.allGu)}}</div>
             </div>
             <div class="row">
                 <div class="label">剩余金额</div>
@@ -27,7 +39,7 @@
             </div>
             <div class="row">
                 <div class="label">剩余总额</div>
-                <div class="val">{{it.endV * it.allGu + it.lessM}}</div>
+                <div class="val">{{parseInt(it.endV * it.allGu + it.lessM)}}</div>
             </div>
         </div>
     </div>
@@ -119,9 +131,10 @@ export default {
             // let time1 = 1.5;
             let arr = [];
             let poross = 2; // 多少个点交易
+            let totalPrice = 100000; // 整体价位
             this.klines.forEach((it, ind) => {
                 if (ind === 0) {
-                    let obj = this.getBuyNum(1500, 100000, it.endV);
+                    let obj = this.getBuyNum(1500, totalPrice, it.endV);
                     arr.push({
                         type: 1, // 买入还是卖出
                         buyGu: obj.gu, // 买入股数
@@ -131,6 +144,7 @@ export default {
                         lessM: obj.lessM, // 剩余金额
                         time: it.time, // 交易时间
                         endV: it.endV, // 最后交易金额
+                        ind: ind,
                         nowLv: 0 // 目前利率
                     })
                 }
@@ -144,27 +158,41 @@ export default {
                     arr.push({
                         type: 2, // 买入还是卖出
                         buyGu: obj.gu, // 卖出股数
-                        selM: obj.selM, // 卖出金额
-                        allGu: lastObj.allGu - obj.gu, // 持有股数
-                        useM: lastObj.buyM - obj.selM, // 用去的金额
-                        lessM: obj.lessM, // 剩余金额
+                        selM: parseInt(obj.selM), // 卖出金额
+                        allGu: parseInt(lastObj.allGu - obj.gu), // 持有股数
+                        useM: parseInt(totalPrice - obj.lessM), // 用去的金额
+                        lessM: parseInt(obj.lessM), // 剩余金额
                         time: it.time, // 交易时间
                         endV: it.endV, // 最后交易金额
+                        ind: ind,
                         nowLv: 0 // 目前利率
                     })
+
+                    if(ind === 486) {
+                        console.log(arr[arr.length - 1], 'lastObj---486-');
+                        console.log(lastObj.buyM, 'lastObj---4861-');
+                        console.log(obj.selM, 'lastObj---4862-');
+                    }
                     return;
                 }
 
-                console.log(lastObj, 'lastObj--');
+
 
                 // 如果跌买入
                 if (it.endV < buyMony) {
                     let obj = this.getBuyNum(lastObj.useM, lastObj.lessM, it.endV);
                     // 485, 487, 492, 493
-        if(ind === 487) {
-            console.log(obj, 'obj----');
-            console.log(lastObj, 'lastObj----');
+
+        if(ind === 485) {
+            console.log(obj, 'obj--485--');
+            console.log(lastObj, 'lastObj---485-');
         }
+
+        // if(ind === 487) {
+            // console.log(obj, 'obj----');
+            // console.log(obj.gu + lastObj.allGu, 'lastObj1----');
+            // console.log(totalPrice - obj.lessM, 'lastObj2----');
+        // }
        
 
                     if (!obj.gu) {
@@ -173,12 +201,13 @@ export default {
                     arr.push({
                         type: 1, // 买入还是卖出
                         buyGu: obj.gu, // 买入股数
-                        allGu: obj.gu + lastObj.allGu, // 持有股数
-                        buyM: obj.buyM, // 买入金额
-                        useM: lastObj.useM + obj.buyM, // 用去的金额
-                        lessM: obj.lessM, // 剩余金额
+                        allGu: parseInt(obj.gu + lastObj.allGu), // 持有股数
+                        buyM: parseInt(obj.buyM), // 买入金额
+                        useM: parseInt(totalPrice - obj.lessM), // 用去的金额
+                        lessM: parseInt(obj.lessM), // 剩余金额
                         time: it.time, // 交易时间
                         endV: it.endV, // 最后交易金额
+                        ind: ind,
                         nowLv: 0 // 目前利率
                     })
                 }
@@ -202,31 +231,9 @@ export default {
         }
     }
 }
-@mixin flex() {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-@mixin fixed-full() {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
 
 #index {
-    @include fixed-full();
-    @include flex();
-    font-weight: 400;
-    ul,
-    li {
-        width: 100%;
-        font-size:30px;
-        margin: 8px;
-        @include flex();
-    }
+    height: 100%;
+    overflow: auto;
 }
 </style>
