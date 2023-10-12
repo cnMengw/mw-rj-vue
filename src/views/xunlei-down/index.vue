@@ -23,6 +23,10 @@ export default {
 
             let tasks = [];
             tasks = data.map(it => {
+                let time = it.startTime.split(' ');
+                time = time[0]; // 时间
+                let nums = it.classroomName.split(' ');
+                nums = nums[1]; // 次数
                 return {
                     name: `${it.title}.mp4`,
                     url: it.url
