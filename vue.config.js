@@ -1,11 +1,11 @@
 const path = require('path');
 const feXdfLocalGet = require('./node-service/xdf-local-get/index.js');
 const feXdfLocalSet = require('./node-service/xdf-local-set/index.js');
-const SkeletonWebpackPlugin = require('vue-skeleton-webpack-plugin');
 process.env.VUE_APP_FEBUILDTIME = new Date().getTime();
 process.env.VUE_APP_FEBUILDTIMEX = new Date();
 const { cdnPath } = require('./package.json');
 const _cdnPath = process.env.NODE_ENV === 'production' && cdnPath ? cdnPath : '/';
+const proxyMiddleware = require('http-proxy-middleware');
 
 function resolve(dir) {
     return path.join(__dirname, dir);
@@ -21,6 +21,13 @@ module.exports = {
         },
         open: true,
         before(app) {
+            app.use('^/prodHuo', proxyMiddleware.createProxyMiddleware({
+                target: 'https://prod.huohuaschool.com',
+                changeOrigin: true,
+                pathRewrite: { '^/prodHuo': '' }
+            }));
+            // https://prod.huohuaschool.com/api-website/v2/component/info/0201003810
+
             feXdfLocalGet(app);
             feXdfLocalSet(app);
             // feXdfOnlineGet(app);

@@ -134,8 +134,7 @@ const loading = {
 const AddCommonParam = config => {
     let { appId = 'bmApp', systemSource = 'mobilePay', isE2, agentName } = xdfUtil.getQueryString();
     let CommonParam = Object.assign(
-        { t: new Date().getTime() },
-        { appId, systemSource, agentName }
+        { t: new Date().getTime() }
     );
     if (isE2) {
         CommonParam = { ...CommonParam, isE2 }
