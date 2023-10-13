@@ -38,7 +38,8 @@
     "vue-skeleton-webpack-plugin": "^1.2.2",
     "vuex": "^3.0.1",
     "web-downloadfile": "^0.0.1",
-    "weixin-js-sdk": "^1.6.0"
+    "weixin-js-sdk": "^1.6.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",
