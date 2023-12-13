@@ -3,20 +3,10 @@
   "version": "1.0.20200706",
   "private": true,
   "scripts": {
-    "3000": "vue-cli-service serve --port 3000",
     "dev": "vue-cli-service serve --host dev.local.xdf.cn --port 5000",
     "mock": "vue-cli-service serve --host mock.local.xdf.cn --port 5000",
-    "phone": "vue-cli-service serve --host 10.201.241.175 --port 5000",
-    "t": "vue-cli-service serve --host t.local.xdf.cn --port 5000",
-    "q": "vue-cli-service serve --host q.local.xdf.cn --port 5000",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build:dev": "vue-cli-service build --mode build-dev",
-    "build:cat": "cross-env cat=true  vue-cli-service build",
-    "lint": "vue-cli-service lint --no-fix",
-    "lint:fix": "vue-cli-service lint --fix",
-    "lint:dry": "eslint --ignore-path ./.eslintignore --no-eslintrc -c ./.eslintrc.json --fix-dry-run --quiet -f codeframe .",
-    "test:unit": "vue-cli-service test:unit"
+    "d": "node ./src/views/node-down/index.js",
+    "build": "vue-cli-service build"
   },
   "dependencies": {
     "autoprefixer": "^9.6.0",
