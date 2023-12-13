@@ -5,7 +5,7 @@ process.env.VUE_APP_FEBUILDTIME = new Date().getTime();
 process.env.VUE_APP_FEBUILDTIMEX = new Date();
 const { cdnPath } = require('./package.json');
 const _cdnPath = process.env.NODE_ENV === 'production' && cdnPath ? cdnPath : '/';
-const proxyMiddleware = require('http-proxy-middleware');
+const proxy_new = require('./setupProxy.js');
 
 function resolve(dir) {
     return path.join(__dirname, dir);
@@ -21,16 +21,9 @@ module.exports = {
         },
         open: true,
         before(app) {
-            app.use('^/prodHuo', proxyMiddleware.createProxyMiddleware({
-                target: 'https://prod.huohuaschool.com',
-                changeOrigin: true,
-                pathRewrite: { '^/prodHuo': '' }
-            }));
-            // https://prod.huohuaschool.com/api-website/v2/component/info/0201003810
-
+            proxy_new(app);
             feXdfLocalGet(app);
             feXdfLocalSet(app);
-            // feXdfOnlineGet(app);
         }
     },
     lintOnSave: false,
