@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import xdfUtil from './utils/xdf-utils';
 import routerTest from './router/router-test';
+import { constant } from 'lodash';
+import { construct } from 'core-js/fn/reflect';
 
 /**
  * meta 参数定义说明
@@ -97,3 +99,46 @@ window.addEventListener('popstate', e => {
 });
 
 export default router;
+
+
+class demo1 {
+    construct(name){
+        this.name = name;
+    }
+    say(){
+        console.log(this.name, 'this.name');
+        this.name = 12
+        return this;
+    }
+    toSay(){
+        this.say();
+        return this;
+    }
+}
+
+class demo2 extends demo1 {
+    construct(){
+        this.name = 21
+    }
+    say(){
+        this.name = 22
+        return this;
+    }
+}
+
+let aa = new demo1();
+let bb = new demo2();
+// aa.name = 'a1'
+aa.say();
+console.log(aa.name);
+console.log(aa.toSay());
+
+
+let name = 3;
+let cc = {
+    name: 'fd',
+    say(){
+        console.log(this.name);
+    }
+}
+cc.say();

@@ -7,10 +7,11 @@ import xdfAuth from './sdk/xdf-auth';
 import xdfAxios from './sdk/xdf-axios';
 import xdfConfig from './sdk/xdf-config';
 import xdfCompute from './utils/xdf-compute';
+import * as $echarts from 'echarts';
 import _ from 'lodash';
 
 
-const Plugs = { xdfConfig, xdfAuth, xdfAxios, xdfUtil, xdfCompute, _};
+const Plugs = { xdfConfig, xdfAuth, xdfAxios, xdfUtil, xdfCompute, $echarts, _};
 
 const VueAddition = {
     install(Vue) {

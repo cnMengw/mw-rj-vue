@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const feXdfLocalGet = require('./node-service/xdf-local-get/index.js');
 const feXdfLocalSet = require('./node-service/xdf-local-set/index.js');
 process.env.VUE_APP_FEBUILDTIME = new Date().getTime();
@@ -19,6 +20,11 @@ module.exports = {
         headers: {
             FeEnvironment: '_environment'
         },
+        // 使用https 时打开
+        // https: {
+        //     cert: fs.readFileSync(path.join(__dirname, './ca/cert.crt')), // 此处路径为自己项目实际为准
+        //     key: fs.readFileSync(path.join(__dirname, './ca/cert.key'))  // 此处路径为自己项目实际为准
+        // },
         open: true,
         before(app) {
             proxy_new(app);
