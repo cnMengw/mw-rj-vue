@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this is down</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.11/dist/vue.js"></script>
+    <script src="https://open.thunderurl.com/thunder-link.js"></script>
+    <script src="./meikeData_mb.js"></script>
+    <style>
+        .meike{
+            padding: 16px;
+            font-size: 16px;
+        }
+        .label-list{
+            margin-bottom: 16px;
+        }
+        .row-top{
+            display: flex;
+            align-items: center;
+        }
+        .top-label{
+            font-weight: 800;
+            color: #3585F7;
+        }
+        .row-item{
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .btn{
+            padding: 4px 16px;
+            border: 1px solid #333;
+            cursor: pointer;
+            margin-left: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="meike">
+            <template>
+                <div class="label-list" v-for="(item, index) in resArr" :key="index">
+                    <div class="row-top">
+                        <span class="top-label">{{item.title}}  {{item.time}}</span>
+                        <span class="btn" @click="() => xunDown(item)">迅雷下载</span>
+                    </div>
+                    <div class="row">
+                        <div class="row-item" v-for="(it2, in2) in item.list">
+                            {{ it2.classroomName }} {{it2.endTime}}
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+    
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                resArr,
+            },
+            methods: {
+                xunDown(item) {
+                    let tasks = [];
+                    tasks = item.list.map(it => {
+                        return {
+                            name: `${it.classroomName}.mp4`,
+                            url: it.downUrl
+                        }
+                    });
+                    // 创建单个任务
+                    let thunderLink = window.thunderLink;
+                    thunderLink.newTask({
+                        tasks: tasks
+                    })
+                }
+            }
+        });
+    </script>
+</body>
+</html>
