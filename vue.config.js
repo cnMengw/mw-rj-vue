@@ -14,7 +14,7 @@ function resolve(dir) {
 
 // vue.config.js 配置说明
 module.exports = {
-    publicPath: _cdnPath,
+    publicPath: './',
     outputDir: process.env.VUE_APP_OUTPUTDIR,
     devServer: {
         headers: {
