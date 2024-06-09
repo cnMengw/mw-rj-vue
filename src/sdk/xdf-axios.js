@@ -9,6 +9,7 @@ import uuid from '../utils/xdf-uuid';
 let loadingCount = 0; // 正在请求的接口数量
 let toastLoading; //打开的loading
 window.AxiosCacelSource = axios;
+
 /**
  * 创建 h5bm 业务实例
  */
@@ -17,11 +18,13 @@ const _xdfAxios = axios.create( {
 } );
 _xdfAxios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 _xdfAxios.defaults.withCredentials = true;
+
 /**
  * h5bm 业务接口请求拦截器
  */
 _xdfAxios.interceptors.request.use(
     config => {
+        config.headers['Origin'] = 'https://nms.mk.metcom.com.cn';
         //判断当前接口是否需要出现等待状态
         config.showLoading && loading.startLoading();
         return AddCommonParam( config );
@@ -31,6 +34,7 @@ _xdfAxios.interceptors.request.use(
         return Promise.reject( error );
     }
 );
+
 /**
  * h5bm 业务接口响应拦截器
  */

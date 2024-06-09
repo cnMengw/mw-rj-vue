@@ -17,6 +17,7 @@
     "core-js": "^2.6.5",
     "download": "^8.0.0",
     "echarts": "^5.4.3",
+    "element-ui": "^2.15.14",
     "eslint-plugin-import": "^2.22.1",
     "lib-flexible": "^0.3.2",
     "lodash": "^4.17.21",

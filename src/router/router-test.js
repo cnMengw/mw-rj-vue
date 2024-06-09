@@ -18,6 +18,24 @@ export default [
         meta: { auth: false, title: '美刻云下载页面' }
     },
     {
+        path: '/meike_mb',
+        name: 'mingbai',
+        component: () => import('@/views/meike/meike-mb/meike-mb.vue'),
+        meta: { auth: false, title: '美刻云下载页面' }
+    },
+    {
+        path: '/meike_mw',
+        name: 'mw',
+        component: () => import('@/views/meike/meike-mw/meike-mw.vue'),
+        meta: { auth: false, title: '美刻云下载页面' }
+    },
+    {
+        path: '/meike_bm',
+        name: 'baimu',
+        component: () => import('@/views/meike/meike-bm/meike-bm.vue'),
+        meta: { auth: false, title: '美刻云下载页面' }
+    },
+    {
         path: '/test',
         name: 'test',
         component: () => import('@/views/mock/test.vue'),

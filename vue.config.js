@@ -30,6 +30,15 @@ module.exports = {
             proxy_new(app);
             feXdfLocalGet(app);
             feXdfLocalSet(app);
+        },
+        proxy: {
+            '/metcom': {
+                target: 'https://nms.mk.metcom.com.cn', // 目标服务器地址
+                changeOrigin: true, // 是否改变源地址
+                pathRewrite: {
+                    '^/metcom': '' // 重写路径
+                }
+            }
         }
     },
     lintOnSave: false,
