@@ -46,6 +46,12 @@ export default [
         name: 'echarts',
         component: () => import('@/views/echarts/echarts.vue'),
         meta: { auth: false, title: 'echarts页面' }
+    },
+    {
+        path: '/zip',
+        name: 'zip',
+        component: () => import('@/views/pic-down/mock.vue'),
+        meta: { auth: false, title: 'echarts页面' }
     }
 ];
 

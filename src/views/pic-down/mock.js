@@ -6,16 +6,16 @@ import axios from 'axios';
 // fileArr下载的list：例如：
 const loadZip = async (fileArr, zipName = '下载文件') => {
 	fileArr.forEach(el => {
-		el.fvName = `${el.fvName}.${el.fvUrl.split('.').at(-1)}`  // 截取url的后缀名添加到文件名： fvname.jpg
+		el.name = `${el.name}.${el.url.split('.').at(-1)}`  // 截取url的后缀名添加到文件名： name.jpg
 	})
 	const zip = new JSZip() // 创建实例对象
 	const promises = []
 	// 遍历生成下载文件
 	fileArr.forEach((item) => {
-		const promise = getFile(item.fvUrl).then((res) => {
-			const fvName = item.fvName + ''
+		const promise = getFile(item.url).then((res) => {
+			const name = item.name + ''
 			// 创建文件用file()，创建文件夹用 floder()
-			zip.file(fvName, res.data, {
+			zip.file(name, res.data, {
 				binary: true
 			})
 		})
@@ -37,9 +37,9 @@ const loadZip = async (fileArr, zipName = '下载文件') => {
 }
 // 这一步为下载文件步骤，通过传入的url下载文件
 // 将文件 url 格式转换为 Bolb 类型格式 或者 arraybuffer 格式
-const getFile = (fvUrl) => {
+const getFile = (url) => {
 	return new Promise((resolve, reject) => {
-		axios(fvUrl, {
+		axios(url, {
 			method: 'get',  // get请求
 			responseType: 'blob' // 返回的数据会被强制转为blob类型 ，转换成arraybuffer 也行
 		}).then((res) => {
