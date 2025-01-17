@@ -1,0 +1,224 @@
+.prism-code-editor {
+    font-family: var(--font-geist-mono),Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+    font-size: 13px;
+    font-variant-ligatures: none;
+    caret-color: hsl(var(--gray-700))
+}
+
+.prism-code-editor.show-line-numbers:before {
+    background-color: hsl(var(--muted))
+}
+
+.prism-code-editor,.prismjs {
+    --widget__bg: hsl(var(--background))
+}
+
+.prism-code-editor .prism-search,.prismjs .prism-search {
+    border-radius: 6px;
+    background-color: hsl(var(--background));
+    border: 1px solid hsl(var(--alpha-400))
+}
+
+.prism-code-editor .prism-search button,.prismjs .prism-search button {
+    font-size: 12px
+}
+
+.prism-code-editor .prism-search .pce-close,.prismjs .prism-search .pce-close {
+    width: 20px;
+    height: 20px
+}
+
+.prism-code-editor .prism-search .pce-close:before,.prismjs .prism-search .pce-close:before {
+    width: 10px;
+    height: 17px
+}
+
+.prism-code-editor .prism-search input,.prismjs .prism-search input {
+    background-color: hsl(var(--background));
+    border-radius: 2px;
+    border: .5px solid hsl(var(--alpha-400));
+    margin-right: 4px
+}
+
+.prism-code-editor .prism-search button,.prismjs .prism-search button {
+    border-radius: 4px
+}
+
+@media (hover: hover) {
+    .prism-code-editor .prism-search button:hover,.prismjs .prism-search button:hover {
+        background-color:hsl(var(--gray-200))
+    }
+}
+
+.prism-code-editor,.prismjs {
+    --highlight-color: hsl(var(--gray-300));
+    --editor__line-number: hsl(var(--gray-400));
+    --search__bg-find: var(--highlight-color)
+}
+
+.prism-code-editor .active-bracket,.prismjs .active-bracket {
+    background-color: var(--highlight-color)
+}
+
+.prism-code-editor code,.prismjs code {
+    word-break: break-word
+}
+
+.prism-code-editor .token.comment,.prismjs .token.comment {
+    color: hsl(var(--gray-400));
+    font-style: italic
+}
+
+.prism-code-editor .token.cdata,.prism-code-editor .token.prolog,.prismjs .token.cdata,.prismjs .token.prolog {
+    color: hsl(var(--gray-700))
+}
+
+.prism-code-editor .token.doctype,.prismjs .token.doctype {
+    color: hsl(var(--gray-900))
+}
+
+.prism-code-editor .token.tag,.prismjs .token.tag {
+    color: hsl(var(--green-700))
+}
+
+.prism-code-editor .token.punctuation,.prism-code-editor .token.tag.punctuation,.prismjs .token.punctuation,.prismjs .token.tag.punctuation {
+    color: hsl(var(--gray-900))
+}
+
+.prism-code-editor .token.entity,.prismjs .token.entity {
+    color: hsl(var(--gray-900));
+    cursor: help
+}
+
+.prism-code-editor .token.attr-name,.prism-code-editor .token.tag.attr-name,.prismjs .token.attr-name,.prismjs .token.tag.attr-name {
+    color: hsl(var(--purple-700))
+}
+
+.prism-code-editor .token.atrule,.prism-code-editor .token.boolean,.prism-code-editor .token.class-name,.prism-code-editor .token.constant,.prism-code-editor .token.number,.prismjs .token.atrule,.prismjs .token.boolean,.prismjs .token.class-name,.prismjs .token.constant,.prismjs .token.number {
+    color: hsl(var(--blue-700))
+}
+
+.prism-code-editor .token.keyword,.prismjs .token.keyword {
+    color: hsl(var(--pink-700))
+}
+
+.prism-code-editor .token.deleted,.prism-code-editor .token.important,.prism-code-editor .token.property,.prism-code-editor .token.symbol,.prismjs .token.deleted,.prismjs .token.important,.prismjs .token.property,.prismjs .token.symbol {
+    color: hsl(var(--blue-700))
+}
+
+.prism-code-editor .token.attr-value,.prism-code-editor .token.attr-value>.token.punctuation,.prism-code-editor .token.builtin,.prism-code-editor .token.char,.prism-code-editor .token.inserted,.prism-code-editor .token.regex,.prism-code-editor .token.selector,.prism-code-editor .token.string,.prismjs .token.attr-value,.prismjs .token.attr-value>.token.punctuation,.prismjs .token.builtin,.prismjs .token.char,.prismjs .token.inserted,.prismjs .token.regex,.prismjs .token.selector,.prismjs .token.string {
+    color: hsl(var(--green-700))
+}
+
+.prism-code-editor .token.variable,.prismjs .token.variable {
+    color: hsl(var(--amber-700))
+}
+
+.prism-code-editor .token.operator,.prismjs .token.operator {
+    color: hsl(var(--pink-700))
+}
+
+.prism-code-editor .token.function,.prismjs .token.function {
+    color: hsl(var(--purple-700))
+}
+
+.prism-code-editor .token.url,.prismjs .token.url {
+    color: hsl(var(--green-700))
+}
+
+.prism-code-editor .token.attr-value>.token.punctuation.attr-equals,.prism-code-editor .token.special-attr>.token.attr-value>.token.value.css,.prismjs .token.attr-value>.token.punctuation.attr-equals,.prismjs .token.special-attr>.token.attr-value>.token.value.css {
+    color: hsl(var(--gray-900))
+}
+
+.prism-code-editor .language-css .token.selector,.prismjs .language-css .token.selector {
+    color: hsl(var(--green-700))
+}
+
+.prism-code-editor .language-css .token.property,.prismjs .language-css .token.property {
+    color: hsl(var(--gray-900))
+}
+
+.prism-code-editor .language-css .token.function,.prismjs .language-css .token.function {
+    color: hsl(var(--purple-700))
+}
+
+.prism-code-editor .language-css .token.url>.token.function,.prism-code-editor .language-css .token.url>.token.string.url,.prismjs .language-css .token.url>.token.function,.prismjs .language-css .token.url>.token.string.url {
+    color: hsl(var(--green-700))
+}
+
+.prism-code-editor .language-css .token.atrule .token.rule,.prism-code-editor .language-css .token.important,.prism-code-editor .language-javascript .token.operator,.prismjs .language-css .token.atrule .token.rule,.prismjs .language-css .token.important,.prismjs .language-javascript .token.operator {
+    color: hsl(var(--pink-700))
+}
+
+.prism-code-editor .language-javascript .token.template-string>.token.interpolation>.token.interpolation-punctuation.punctuation,.prismjs .language-javascript .token.template-string>.token.interpolation>.token.interpolation-punctuation.punctuation {
+    color: hsl(var(--green-700))
+}
+
+.prism-code-editor .language-json .token.operator,.prismjs .language-json .token.operator {
+    color: hsl(var(--gray-900))
+}
+
+.prism-code-editor .language-json .token.null.keyword,.prismjs .language-json .token.null.keyword {
+    color: hsl(var(--blue-700))
+}
+
+.prism-code-editor .language-markdown .token.url,.prism-code-editor .language-markdown .token.url-reference.url>.token.string,.prism-code-editor .language-markdown .token.url>.token.operator,.prismjs .language-markdown .token.url,.prismjs .language-markdown .token.url-reference.url>.token.string,.prismjs .language-markdown .token.url>.token.operator {
+    color: hsl(var(--gray-900))
+}
+
+.prism-code-editor .language-markdown .token.url>.token.content,.prismjs .language-markdown .token.url>.token.content {
+    color: hsl(var(--amber-700))
+}
+
+.prism-code-editor .language-markdown .token.url-reference.url,.prism-code-editor .language-markdown .token.url>.token.url,.prismjs .language-markdown .token.url-reference.url,.prismjs .language-markdown .token.url>.token.url {
+    color: hsl(var(--green-700))
+}
+
+.prism-code-editor .language-markdown .token.blockquote.punctuation,.prism-code-editor .language-markdown .token.hr.punctuation,.prismjs .language-markdown .token.blockquote.punctuation,.prismjs .language-markdown .token.hr.punctuation {
+    color: hsl(var(--gray-700));
+    font-style: italic
+}
+
+.prism-code-editor .language-markdown .token.code-snippet,.prismjs .language-markdown .token.code-snippet {
+    color: hsl(var(--green-700))
+}
+
+.prism-code-editor .language-markdown .token.bold .token.content,.prismjs .language-markdown .token.bold .token.content {
+    color: hsl(var(--blue-700))
+}
+
+.prism-code-editor .language-markdown .token.italic .token.content,.prismjs .language-markdown .token.italic .token.content {
+    color: hsl(var(--pink-700))
+}
+
+.prism-code-editor .language-markdown .token.list.punctuation,.prism-code-editor .language-markdown .token.strike .token.content,.prism-code-editor .language-markdown .token.strike .token.punctuation,.prism-code-editor .language-markdown .token.title.important>.token.punctuation,.prismjs .language-markdown .token.list.punctuation,.prismjs .language-markdown .token.strike .token.content,.prismjs .language-markdown .token.strike .token.punctuation,.prismjs .language-markdown .token.title.important>.token.punctuation {
+    color: hsl(var(--amber-700))
+}
+
+.prism-code-editor .token.bold,.prismjs .token.bold {
+    font-weight: 700
+}
+
+.prism-code-editor .token.italic,.prismjs .token.italic {
+    font-style: italic
+}
+
+.prism-code-editor .token.namespace,.prismjs .token.namespace {
+    opacity: .8
+}
+
+.prism-code-editor .token.cr:before,.prism-code-editor .token.lf:before,.prism-code-editor .token.space:before,.prism-code-editor .token.tab:not(:empty):before,.prismjs .token.cr:before,.prismjs .token.lf:before,.prismjs .token.space:before,.prismjs .token.tab:not(:empty):before {
+    color: hsl(var(--gray-900))
+}
+
+.monaco-editor {
+    font-variant: no-common-ligatures
+}
+
+.monaco-editor .conflict-current {
+    background-color: rgba(255,0,0,.1)
+}
+
+.monaco-editor .conflict-upcoming {
+    background-color: rgba(0,0,255,.1)
+}

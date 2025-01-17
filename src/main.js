@@ -5,6 +5,8 @@ import store from './store';
 import VueAddition from './vue-addition';
 import ElementUI from 'element-ui';
 import { Toast } from 'vant';
+import './components/loading/loading.js';
+// import './reset.css';
 
 import 'element-ui/lib/theme-chalk/index.css';
 import 'lib-flexible';
